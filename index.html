@@ -38,6 +38,12 @@
   .pf-btn-mono { transition: border-color 0.2s ease, color 0.2s ease; }
   .pf-btn-mono:hover { border-color: rgba(255,255,255,0.35) !important; color: #F4F2EE !important; }
 
+  /* Language switcher */
+  .pf-lang { display: inline-flex; align-items: center; gap: 2px; padding: 3px; border: 1px solid rgba(255,255,255,0.12); border-radius: 999px; }
+  .pf-lang-btn { font-family: 'JetBrains Mono', monospace; font-size: 11.5px; letter-spacing: 0.02em; color: #9A9AA3; background: transparent; border: 0; padding: 5px 10px; border-radius: 999px; cursor: pointer; transition: color 0.2s ease, background 0.2s ease; }
+  .pf-lang-btn[aria-pressed="true"] { background: #FF6A3D; color: #0B0B0F; }
+  .pf-lang-btn:hover:not([aria-pressed="true"]) { color: #F4F2EE; }
+
   /* Scroll reveal */
   [data-reveal] { transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1); }
   .pf-reveal-hidden { opacity: 0; transform: translateY(28px); }
@@ -80,12 +86,16 @@
       <span style="font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 15px; letter-spacing: -0.01em;">Idris Tafoukt</span>
     </a>
     <div class="pf-nav-links" style="display: flex; align-items: center; gap: 28px; font-family: 'JetBrains Mono', monospace; font-size: 12.5px; letter-spacing: 0.02em;">
-      <a href="#profil" class="pf-nav-link">profil</a>
-      <a href="#competences" class="pf-nav-link">compétences</a>
-      <a href="#experience" class="pf-nav-link">expérience</a>
-      <a href="#projets" class="pf-nav-link">projets</a>
+      <a href="#profil" class="pf-nav-link" data-i18n="nav.profil">profil</a>
+      <a href="#competences" class="pf-nav-link" data-i18n="nav.competences">compétences</a>
+      <a href="#experience" class="pf-nav-link" data-i18n="nav.experience">expérience</a>
+      <a href="#projets" class="pf-nav-link" data-i18n="nav.projets">projets</a>
+      <div class="pf-lang" role="group" aria-label="Langue / Language">
+        <button type="button" class="pf-lang-btn" data-lang="fr">FR</button>
+        <button type="button" class="pf-lang-btn" data-lang="en">EN</button>
+      </div>
       <a href="#contact" class="pf-nav-contact" style="display: inline-flex; align-items: center; gap: 7px; padding: 8px 15px; border-radius: 999px; border: 1px solid rgba(255,106,61,0.45); color: #FF6A3D; background: rgba(255,106,61,0.08);">
-        <span style="width: 6px; height: 6px; border-radius: 50%; background: #FF6A3D; box-shadow: 0 0 8px #FF6A3D;"></span>contact
+        <span style="width: 6px; height: 6px; border-radius: 50%; background: #FF6A3D; box-shadow: 0 0 8px #FF6A3D;"></span><span data-i18n="nav.contact">contact</span>
       </a>
     </div>
   </nav>
@@ -94,36 +104,36 @@
   <header id="top" style="position: relative; z-index: 1; max-width: 1180px; margin: 0 auto; padding: 200px 32px 90px;">
     <div style="display: inline-flex; align-items: center; gap: 10px; font-family: 'JetBrains Mono', monospace; font-size: 12.5px; color: #9A9AA3; padding: 7px 14px; border: 1px solid rgba(255,255,255,0.1); border-radius: 999px; margin-bottom: 34px;">
       <span style="width: 7px; height: 7px; border-radius: 50%; background: #5CD68D; box-shadow: 0 0 8px #5CD68D;"></span>
-      Disponible · Bejaïa, Algérie
+      <span data-i18n="hero.badge">Disponible · Bejaïa, Algérie</span>
     </div>
-    <h1 style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: clamp(48px, 8vw, 104px); line-height: 0.98; letter-spacing: -0.035em; margin: 0; color: #F4F2EE;">
+    <h1 data-i18n="hero.h1" style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: clamp(48px, 8vw, 104px); line-height: 0.98; letter-spacing: -0.035em; margin: 0; color: #F4F2EE;">
       Développeur<br>Front-End <span style="color: #FF6A3D;">Angular.</span>
     </h1>
-    <p style="max-width: 660px; margin: 32px 0 0; font-size: clamp(17px, 2vw, 21px); line-height: 1.55; color: #B7B7BE;">
+    <p data-i18n="hero.lead" style="max-width: 660px; margin: 32px 0 0; font-size: clamp(17px, 2vw, 21px); line-height: 1.55; color: #B7B7BE;">
       4 ans à concevoir et faire vivre des applications web en production — vote en ligne, RH, recrutement. Aujourd'hui, cap vers le <span style="color: #F4F2EE; font-weight: 600;">Lead full-stack</span> et le développement assisté par l'IA.
     </p>
     <div style="display: flex; flex-wrap: wrap; gap: 14px; margin-top: 40px;">
-      <a href="#contact" class="pf-btn-primary" style="display: inline-flex; align-items: center; gap: 9px; padding: 14px 26px; border-radius: 11px; background: #FF6A3D; color: #0B0B0F; font-weight: 600; font-size: 15px;">Me contacter →</a>
-      <a href="#projets" class="pf-btn-outline" style="display: inline-flex; align-items: center; gap: 9px; padding: 14px 26px; border-radius: 11px; border: 1px solid rgba(255,255,255,0.14); color: #F4F2EE; font-weight: 600; font-size: 15px;">Voir mes projets</a>
+      <a href="#contact" class="pf-btn-primary" data-i18n="hero.cta1" style="display: inline-flex; align-items: center; gap: 9px; padding: 14px 26px; border-radius: 11px; background: #FF6A3D; color: #0B0B0F; font-weight: 600; font-size: 15px;">Me contacter →</a>
+      <a href="#projets" class="pf-btn-outline" data-i18n="hero.cta2" style="display: inline-flex; align-items: center; gap: 9px; padding: 14px 26px; border-radius: 11px; border: 1px solid rgba(255,255,255,0.14); color: #F4F2EE; font-weight: 600; font-size: 15px;">Voir mes projets</a>
       <a href="https://linkedin.com/in/idris-tafoukt" target="_blank" rel="noopener" class="pf-btn-mono" style="display: inline-flex; align-items: center; gap: 9px; padding: 14px 22px; border-radius: 11px; border: 1px solid rgba(255,255,255,0.14); color: #B7B7BE; font-family: 'JetBrains Mono', monospace; font-size: 13px;">in/idris-tafoukt</a>
     </div>
 
     <div class="pf-stats" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; margin-top: 72px; border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; overflow: hidden; background: rgba(255,255,255,0.08);">
       <div style="background: #0E0E13; padding: 26px 24px;">
         <div style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 34px; color: #FF6A3D; letter-spacing: -0.02em;">4+</div>
-        <div style="font-size: 13.5px; color: #9A9AA3; margin-top: 6px;">ans d'expérience</div>
+        <div style="font-size: 13.5px; color: #9A9AA3; margin-top: 6px;" data-i18n="hero.stat1">ans d'expérience</div>
       </div>
       <div style="background: #0E0E13; padding: 26px 24px;">
         <div style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 34px; color: #F4F2EE; letter-spacing: -0.02em;">10+</div>
-        <div style="font-size: 13.5px; color: #9A9AA3; margin-top: 6px;">apps en production</div>
+        <div style="font-size: 13.5px; color: #9A9AA3; margin-top: 6px;" data-i18n="hero.stat2">apps en production</div>
       </div>
       <div style="background: #0E0E13; padding: 26px 24px;">
         <div style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 34px; color: #F4F2EE; letter-spacing: -0.02em;">v11→19</div>
-        <div style="font-size: 13.5px; color: #9A9AA3; margin-top: 6px;">migrations Angular</div>
+        <div style="font-size: 13.5px; color: #9A9AA3; margin-top: 6px;" data-i18n="hero.stat3">migrations Angular</div>
       </div>
       <div style="background: #0E0E13; padding: 26px 24px;">
         <div style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 34px; color: #F4F2EE; letter-spacing: -0.02em;">3</div>
-        <div style="font-size: 13.5px; color: #9A9AA3; margin-top: 6px;">domaines · RH · Vote · ATS</div>
+        <div style="font-size: 13.5px; color: #9A9AA3; margin-top: 6px;" data-i18n="hero.stat4">domaines · RH · Vote · ATS</div>
       </div>
     </div>
   </header>
@@ -133,13 +143,13 @@
     <div data-reveal class="pf-profil" style="display: grid; grid-template-columns: 240px 1fr; gap: 48px;">
       <div>
         <div style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #FF6A3D;">// 01</div>
-        <h2 style="font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 28px; letter-spacing: -0.02em; margin: 8px 0 0;">Profil</h2>
+        <h2 style="font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 28px; letter-spacing: -0.02em; margin: 8px 0 0;" data-i18n="profil.title">Profil</h2>
       </div>
       <div>
-        <p style="font-size: clamp(18px, 2.2vw, 24px); line-height: 1.6; margin: 0; color: #DCDCDF; font-weight: 500; text-wrap: pretty;">
+        <p data-i18n="profil.p1" style="font-size: clamp(18px, 2.2vw, 24px); line-height: 1.6; margin: 0; color: #DCDCDF; font-weight: 500; text-wrap: pretty;">
           Développeur front-end passionné, j'ai contribué à plusieurs <span style="color: #FF6A3D;">projets SaaS</span> dans le recrutement, les RH et le vote en ligne — de la conception à la maintenance en production.
         </p>
-        <p style="font-size: 16.5px; line-height: 1.7; margin: 24px 0 0; color: #9A9AA3; max-width: 640px; text-wrap: pretty;">
+        <p data-i18n="profil.p2" style="font-size: 16.5px; line-height: 1.7; margin: 24px 0 0; color: #9A9AA3; max-width: 640px; text-wrap: pretty;">
           Solide expertise en TypeScript, RxJS, NgRx, SSR et architecture modulaire/standalone, à l'aise en environnement Agile/Scrum et dans la collaboration avec les équipes MOA et back-end. Je souhaite évoluer vers un rôle de <span style="color: #DCDCDF;">Lead développeur full-stack</span> et développer une expertise sur l'intégration de l'IA et des approches no-code dans le développement web.
         </p>
       </div>
@@ -150,12 +160,12 @@
   <section id="competences" style="position: relative; z-index: 1; max-width: 1180px; margin: 0 auto; padding: 80px 32px; scroll-margin-top: 90px;">
     <div data-reveal style="margin-bottom: 44px;">
       <div style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #FF6A3D;">// 02</div>
-      <h2 style="font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: clamp(30px, 4vw, 44px); letter-spacing: -0.025em; margin: 8px 0 0;">Compétences techniques</h2>
+      <h2 style="font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: clamp(30px, 4vw, 44px); letter-spacing: -0.025em; margin: 8px 0 0;" data-i18n="comp.title">Compétences techniques</h2>
     </div>
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px;">
 
       <div data-reveal style="background: #101015; border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 24px;">
-        <h3 style="font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 500; color: #FF6A3D; margin: 0 0 16px; text-transform: uppercase; letter-spacing: 0.05em;">Frameworks &amp; Librairies</h3>
+        <h3 style="font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 500; color: #FF6A3D; margin: 0 0 16px; text-transform: uppercase; letter-spacing: 0.05em;" data-i18n="comp.c1">Frameworks &amp; Librairies</h3>
         <div style="display: flex; flex-wrap: wrap; gap: 8px;">
           <span style="font-family: 'JetBrains Mono', monospace; font-size: 12.5px; color: #DCDCDF; padding: 6px 12px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.07); border-radius: 8px;">Angular v11→v19</span>
           <span style="font-family: 'JetBrains Mono', monospace; font-size: 12.5px; color: #DCDCDF; padding: 6px 12px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.07); border-radius: 8px;">RxJS</span>
@@ -170,7 +180,7 @@
       </div>
 
       <div data-reveal style="background: #101015; border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 24px;">
-        <h3 style="font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 500; color: #FF6A3D; margin: 0 0 16px; text-transform: uppercase; letter-spacing: 0.05em;">Langages</h3>
+        <h3 style="font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 500; color: #FF6A3D; margin: 0 0 16px; text-transform: uppercase; letter-spacing: 0.05em;" data-i18n="comp.c2">Langages</h3>
         <div style="display: flex; flex-wrap: wrap; gap: 8px;">
           <span style="font-family: 'JetBrains Mono', monospace; font-size: 12.5px; color: #DCDCDF; padding: 6px 12px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.07); border-radius: 8px;">TypeScript</span>
           <span style="font-family: 'JetBrains Mono', monospace; font-size: 12.5px; color: #DCDCDF; padding: 6px 12px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.07); border-radius: 8px;">JavaScript ES6+</span>
@@ -181,64 +191,64 @@
       </div>
 
       <div data-reveal style="background: #101015; border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 24px;">
-        <h3 style="font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 500; color: #FF6A3D; margin: 0 0 16px; text-transform: uppercase; letter-spacing: 0.05em;">Styling &amp; UI</h3>
+        <h3 style="font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 500; color: #FF6A3D; margin: 0 0 16px; text-transform: uppercase; letter-spacing: 0.05em;" data-i18n="comp.c3">Styling &amp; UI</h3>
         <div style="display: flex; flex-wrap: wrap; gap: 8px;">
           <span style="font-family: 'JetBrains Mono', monospace; font-size: 12.5px; color: #DCDCDF; padding: 6px 12px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.07); border-radius: 8px;">Tailwind CSS</span>
           <span style="font-family: 'JetBrains Mono', monospace; font-size: 12.5px; color: #DCDCDF; padding: 6px 12px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.07); border-radius: 8px;">Bootstrap</span>
           <span style="font-family: 'JetBrains Mono', monospace; font-size: 12.5px; color: #DCDCDF; padding: 6px 12px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.07); border-radius: 8px;">Angular Material</span>
-          <span style="font-family: 'JetBrains Mono', monospace; font-size: 12.5px; color: #DCDCDF; padding: 6px 12px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.07); border-radius: 8px;">Responsive design</span>
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 12.5px; color: #DCDCDF; padding: 6px 12px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.07); border-radius: 8px;" data-i18n="comp.responsive">Responsive design</span>
         </div>
       </div>
 
       <div data-reveal style="background: #101015; border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 24px;">
-        <h3 style="font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 500; color: #FF6A3D; margin: 0 0 16px; text-transform: uppercase; letter-spacing: 0.05em;">Architecture &amp; APIs</h3>
+        <h3 style="font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 500; color: #FF6A3D; margin: 0 0 16px; text-transform: uppercase; letter-spacing: 0.05em;" data-i18n="comp.c4">Architecture &amp; APIs</h3>
         <div style="display: flex; flex-wrap: wrap; gap: 8px;">
           <span style="font-family: 'JetBrains Mono', monospace; font-size: 12.5px; color: #DCDCDF; padding: 6px 12px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.07); border-radius: 8px;">REST</span>
           <span style="font-family: 'JetBrains Mono', monospace; font-size: 12.5px; color: #DCDCDF; padding: 6px 12px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.07); border-radius: 8px;">WebSockets</span>
           <span style="font-family: 'JetBrains Mono', monospace; font-size: 12.5px; color: #DCDCDF; padding: 6px 12px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.07); border-radius: 8px;">SSR · Angular Universal</span>
           <span style="font-family: 'JetBrains Mono', monospace; font-size: 12.5px; color: #DCDCDF; padding: 6px 12px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.07); border-radius: 8px;">PWA</span>
           <span style="font-family: 'JetBrains Mono', monospace; font-size: 12.5px; color: #DCDCDF; padding: 6px 12px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.07); border-radius: 8px;">Lazy Loading</span>
-          <span style="font-family: 'JetBrains Mono', monospace; font-size: 12.5px; color: #DCDCDF; padding: 6px 12px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.07); border-radius: 8px;">Modulaire / Standalone</span>
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 12.5px; color: #DCDCDF; padding: 6px 12px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.07); border-radius: 8px;" data-i18n="comp.modular">Modulaire / Standalone</span>
         </div>
       </div>
 
       <div data-reveal style="background: #101015; border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 24px;">
-        <h3 style="font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 500; color: #FF6A3D; margin: 0 0 16px; text-transform: uppercase; letter-spacing: 0.05em;">Qualité &amp; Sécurité</h3>
+        <h3 style="font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 500; color: #FF6A3D; margin: 0 0 16px; text-transform: uppercase; letter-spacing: 0.05em;" data-i18n="comp.c5">Qualité &amp; Sécurité</h3>
         <div style="display: flex; flex-wrap: wrap; gap: 8px;">
           <span style="font-family: 'JetBrains Mono', monospace; font-size: 12.5px; color: #DCDCDF; padding: 6px 12px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.07); border-radius: 8px;">ESLint</span>
           <span style="font-family: 'JetBrains Mono', monospace; font-size: 12.5px; color: #DCDCDF; padding: 6px 12px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.07); border-radius: 8px;">SonarQube</span>
           <span style="font-family: 'JetBrains Mono', monospace; font-size: 12.5px; color: #DCDCDF; padding: 6px 12px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.07); border-radius: 8px;">reCAPTCHA v3</span>
-          <span style="font-family: 'JetBrains Mono', monospace; font-size: 12.5px; color: #DCDCDF; padding: 6px 12px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.07); border-radius: 8px;">Code review</span>
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 12.5px; color: #DCDCDF; padding: 6px 12px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.07); border-radius: 8px;" data-i18n="comp.codereview">Code review</span>
           <span style="font-family: 'JetBrains Mono', monospace; font-size: 12.5px; color: #DCDCDF; padding: 6px 12px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.07); border-radius: 8px;">UAT</span>
         </div>
       </div>
 
       <div data-reveal style="background: #101015; border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 24px;">
-        <h3 style="font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 500; color: #FF6A3D; margin: 0 0 16px; text-transform: uppercase; letter-spacing: 0.05em;">Outils &amp; DevOps</h3>
+        <h3 style="font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 500; color: #FF6A3D; margin: 0 0 16px; text-transform: uppercase; letter-spacing: 0.05em;" data-i18n="comp.c6">Outils &amp; DevOps</h3>
         <div style="display: flex; flex-wrap: wrap; gap: 8px;">
           <span style="font-family: 'JetBrains Mono', monospace; font-size: 12.5px; color: #DCDCDF; padding: 6px 12px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.07); border-radius: 8px;">Git</span>
           <span style="font-family: 'JetBrains Mono', monospace; font-size: 12.5px; color: #DCDCDF; padding: 6px 12px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.07); border-radius: 8px;">GitHub</span>
           <span style="font-family: 'JetBrains Mono', monospace; font-size: 12.5px; color: #DCDCDF; padding: 6px 12px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.07); border-radius: 8px;">GitKraken</span>
           <span style="font-family: 'JetBrains Mono', monospace; font-size: 12.5px; color: #DCDCDF; padding: 6px 12px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.07); border-radius: 8px;">Node · npm</span>
           <span style="font-family: 'JetBrains Mono', monospace; font-size: 12.5px; color: #DCDCDF; padding: 6px 12px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.07); border-radius: 8px;">Jira · Asana</span>
-          <span style="font-family: 'JetBrains Mono', monospace; font-size: 12.5px; color: #9A9AA3; padding: 6px 12px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.07); border-radius: 8px;">Docker <span style="opacity:0.6">· base</span></span>
-          <span style="font-family: 'JetBrains Mono', monospace; font-size: 12.5px; color: #9A9AA3; padding: 6px 12px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.07); border-radius: 8px;">CI/CD <span style="opacity:0.6">· base</span></span>
-          <span style="font-family: 'JetBrains Mono', monospace; font-size: 12.5px; color: #9A9AA3; padding: 6px 12px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.07); border-radius: 8px;">AWS <span style="opacity:0.6">· base</span></span>
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 12.5px; color: #9A9AA3; padding: 6px 12px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.07); border-radius: 8px;" data-i18n="comp.docker">Docker <span style="opacity:0.6">· base</span></span>
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 12.5px; color: #9A9AA3; padding: 6px 12px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.07); border-radius: 8px;" data-i18n="comp.cicd">CI/CD <span style="opacity:0.6">· base</span></span>
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 12.5px; color: #9A9AA3; padding: 6px 12px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.07); border-radius: 8px;" data-i18n="comp.aws">AWS <span style="opacity:0.6">· base</span></span>
         </div>
       </div>
 
       <div data-reveal style="background: linear-gradient(135deg, rgba(255,106,61,0.10), rgba(255,106,61,0.02)); border: 1px solid rgba(255,106,61,0.25); border-radius: 16px; padding: 24px;">
-        <h3 style="font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 500; color: #FF6A3D; margin: 0 0 16px; text-transform: uppercase; letter-spacing: 0.05em;">IA &amp; Productivité</h3>
+        <h3 style="font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 500; color: #FF6A3D; margin: 0 0 16px; text-transform: uppercase; letter-spacing: 0.05em;" data-i18n="comp.c7">IA &amp; Productivité</h3>
         <div style="display: flex; flex-wrap: wrap; gap: 8px;">
-          <span style="font-family: 'JetBrains Mono', monospace; font-size: 12.5px; color: #F4F2EE; padding: 6px 12px; background: rgba(255,106,61,0.12); border: 1px solid rgba(255,106,61,0.3); border-radius: 8px;">Dev assisté par IA</span>
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 12.5px; color: #F4F2EE; padding: 6px 12px; background: rgba(255,106,61,0.12); border: 1px solid rgba(255,106,61,0.3); border-radius: 8px;" data-i18n="comp.aidev">Dev assisté par IA</span>
           <span style="font-family: 'JetBrains Mono', monospace; font-size: 12.5px; color: #F4F2EE; padding: 6px 12px; background: rgba(255,106,61,0.12); border: 1px solid rgba(255,106,61,0.3); border-radius: 8px;">Claude Code</span>
           <span style="font-family: 'JetBrains Mono', monospace; font-size: 12.5px; color: #F4F2EE; padding: 6px 12px; background: rgba(255,106,61,0.12); border: 1px solid rgba(255,106,61,0.3); border-radius: 8px;">Antigravity / Gemini</span>
-          <span style="font-family: 'JetBrains Mono', monospace; font-size: 12.5px; color: #F4F2EE; padding: 6px 12px; background: rgba(255,106,61,0.12); border: 1px solid rgba(255,106,61,0.3); border-radius: 8px;">Outils no-code</span>
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 12.5px; color: #F4F2EE; padding: 6px 12px; background: rgba(255,106,61,0.12); border: 1px solid rgba(255,106,61,0.3); border-radius: 8px;" data-i18n="comp.nocode">Outils no-code</span>
         </div>
       </div>
 
       <div data-reveal style="background: #101015; border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 24px;">
-        <h3 style="font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 500; color: #FF6A3D; margin: 0 0 16px; text-transform: uppercase; letter-spacing: 0.05em;">Notions Back-End</h3>
+        <h3 style="font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 500; color: #FF6A3D; margin: 0 0 16px; text-transform: uppercase; letter-spacing: 0.05em;" data-i18n="comp.c8">Notions Back-End</h3>
         <div style="display: flex; flex-wrap: wrap; gap: 8px;">
           <span style="font-family: 'JetBrains Mono', monospace; font-size: 12.5px; color: #DCDCDF; padding: 6px 12px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.07); border-radius: 8px;">Node.js</span>
           <span style="font-family: 'JetBrains Mono', monospace; font-size: 12.5px; color: #DCDCDF; padding: 6px 12px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.07); border-radius: 8px;">Express</span>
@@ -255,7 +265,7 @@
   <section id="experience" style="position: relative; z-index: 1; max-width: 1180px; margin: 0 auto; padding: 80px 32px; scroll-margin-top: 90px;">
     <div data-reveal style="margin-bottom: 48px;">
       <div style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #FF6A3D;">// 03</div>
-      <h2 style="font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: clamp(30px, 4vw, 44px); letter-spacing: -0.025em; margin: 8px 0 0;">Expérience professionnelle</h2>
+      <h2 style="font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: clamp(30px, 4vw, 44px); letter-spacing: -0.025em; margin: 8px 0 0;" data-i18n="exp.title">Expérience professionnelle</h2>
     </div>
 
     <div style="position: relative; padding-left: 30px;">
@@ -265,24 +275,24 @@
       <div data-reveal style="position: relative; margin-bottom: 56px;">
         <div style="position: absolute; left: -30px; top: 4px; width: 15px; height: 15px; border-radius: 50%; background: #FF6A3D; box-shadow: 0 0 0 4px #0B0B0F, 0 0 14px rgba(255,106,61,0.6);"></div>
         <div style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px;">
-          <h3 style="font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 23px; margin: 0; letter-spacing: -0.01em;">Développeur Front-End Angular <span style="color: #FF6A3D;">·</span> Tech'instinct</h3>
-          <span style="font-family: 'JetBrains Mono', monospace; font-size: 12.5px; color: #9A9AA3;">Août 2022 — Aujourd'hui</span>
+          <h3 style="font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 23px; margin: 0; letter-spacing: -0.01em;" data-i18n="exp.ti.role">Développeur Front-End Angular <span style="color: #FF6A3D;">·</span> Tech'instinct</h3>
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 12.5px; color: #9A9AA3;" data-i18n="exp.ti.date">Août 2022 — Aujourd'hui</span>
         </div>
-        <p style="font-size: 14.5px; color: #9A9AA3; margin: 8px 0 24px;">ESN spécialisée dans le développement d'applications web pour clients internationaux — France, Suisse, Algérie.</p>
+        <p style="font-size: 14.5px; color: #9A9AA3; margin: 8px 0 24px;" data-i18n="exp.ti.desc">ESN spécialisée dans le développement d'applications web pour clients internationaux — France, Suisse, Algérie.</p>
 
         <!-- Voteer -->
         <div style="background: #101015; border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 22px; margin-bottom: 14px;">
           <div style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 6px; margin-bottom: 14px;">
-            <div style="font-weight: 600; font-size: 17px;"><span style="color:#FF6A3D;">▸</span> Voteer <span style="color: #6A6A73; font-weight: 400; font-size: 14px;">— Suite d'applications de vote légal en ligne</span></div>
-            <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #6A6A73;">Août 2024 — Aujourd'hui</span>
+            <div style="font-weight: 600; font-size: 17px;" data-i18n="exp.voteer.title"><span style="color:#FF6A3D;">▸</span> Voteer <span style="color: #6A6A73; font-weight: 400; font-size: 14px;">— Suite d'applications de vote légal en ligne</span></div>
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #6A6A73;" data-i18n="exp.voteer.date">Août 2024 — Aujourd'hui</span>
           </div>
           <ul style="margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 9px; color: #B7B7BE; font-size: 15px; line-height: 1.5;">
-            <li>Repris le développement de 4 applications Angular distinctes (Admin, Organizer, Voter, Check-in) et assuré la continuité du projet ainsi que l'évolution des fonctionnalités.</li>
-            <li>Intégré l'application Voter à la <span style="color:#F4F2EE;">Zoom Marketplace</span> et mené le processus de publication jusqu'à la mise en ligne officielle.</li>
-            <li>Implémenté les normes d'accessibilité <span style="color:#F4F2EE;">RGAA</span> sur toute l'application Voter : navigation clavier, attributs ARIA, contrastes, lecteurs d'écran.</li>
-            <li>Piloté la <span style="color:#F4F2EE;">migration d'Angular 15 à 19</span> et refactorisé le code (standalone, control flow @if/@for, signals, inject()) — lisibilité accrue, bundle réduit.</li>
-            <li>Réalisé un profiling approfondi et appliqué des optimisations ciblées : lazy loading, OnPush, trackBy, signals.</li>
-            <li>Collaboré au quotidien avec 2 développeurs back-end et la MOA en Scrum : contrats d'API, revues de code, recettes (UAT), intégration.</li>
+            <li data-i18n="exp.voteer.li1">Repris le développement de 4 applications Angular distinctes (Admin, Organizer, Voter, Check-in) et assuré la continuité du projet ainsi que l'évolution des fonctionnalités.</li>
+            <li data-i18n="exp.voteer.li2">Intégré l'application Voter à la <span style="color:#F4F2EE;">Zoom Marketplace</span> et mené le processus de publication jusqu'à la mise en ligne officielle.</li>
+            <li data-i18n="exp.voteer.li3">Implémenté les normes d'accessibilité <span style="color:#F4F2EE;">RGAA</span> sur toute l'application Voter : navigation clavier, attributs ARIA, contrastes, lecteurs d'écran.</li>
+            <li data-i18n="exp.voteer.li4">Piloté la <span style="color:#F4F2EE;">migration d'Angular 15 à 19</span> et refactorisé le code (standalone, control flow @if/@for, signals, inject()) — lisibilité accrue, bundle réduit.</li>
+            <li data-i18n="exp.voteer.li5">Réalisé un profiling approfondi et appliqué des optimisations ciblées : lazy loading, OnPush, trackBy, signals.</li>
+            <li data-i18n="exp.voteer.li6">Collaboré au quotidien avec 2 développeurs back-end et la MOA en Scrum : contrats d'API, revues de code, recettes (UAT), intégration.</li>
           </ul>
           <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-top: 16px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.06);">
             <span style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: #8E8E97; padding: 4px 9px; background: rgba(255,255,255,0.04); border-radius: 6px;">Angular 15→19</span>
@@ -300,14 +310,14 @@
         <!-- SpartanJob -->
         <div style="background: #101015; border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 22px; margin-bottom: 14px;">
           <div style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 6px; margin-bottom: 14px;">
-            <div style="font-weight: 600; font-size: 17px;"><span style="color:#FF6A3D;">▸</span> SpartanJob <span style="color: #6A6A73; font-weight: 400; font-size: 14px;">— Plateforme de recrutement suisse</span></div>
-            <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #6A6A73;">Fév 2024 — Août 2024</span>
+            <div style="font-weight: 600; font-size: 17px;" data-i18n="exp.spartan.title"><span style="color:#FF6A3D;">▸</span> SpartanJob <span style="color: #6A6A73; font-weight: 400; font-size: 14px;">— Plateforme de recrutement suisse</span></div>
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #6A6A73;" data-i18n="exp.spartan.date">Fév 2024 — Août 2024</span>
           </div>
           <ul style="margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 9px; color: #B7B7BE; font-size: 15px; line-height: 1.5;">
-            <li>Assuré la reprise technique de 2 applications Angular : portail client entreprises et application candidats avec SSR.</li>
-            <li>Intégré le balisage structuré <span style="color:#F4F2EE;">JSON-LD (Schema.org JobPosting)</span> permettant l'indexation des offres dans <span style="color:#F4F2EE;">Google for Jobs</span> — visibilité organique fortement accrue.</li>
-            <li>Maintenu et optimisé le rendu côté serveur (Angular Universal) pour un SEO performant et un temps de chargement initial réduit.</li>
-            <li>Collaboré en Scrum avec l'équipe back-end et la MOA : contrats d'API REST, revues de code, recettes (UAT), intégration.</li>
+            <li data-i18n="exp.spartan.li1">Assuré la reprise technique de 2 applications Angular : portail client entreprises et application candidats avec SSR.</li>
+            <li data-i18n="exp.spartan.li2">Intégré le balisage structuré <span style="color:#F4F2EE;">JSON-LD (Schema.org JobPosting)</span> permettant l'indexation des offres dans <span style="color:#F4F2EE;">Google for Jobs</span> — visibilité organique fortement accrue.</li>
+            <li data-i18n="exp.spartan.li3">Maintenu et optimisé le rendu côté serveur (Angular Universal) pour un SEO performant et un temps de chargement initial réduit.</li>
+            <li data-i18n="exp.spartan.li4">Collaboré en Scrum avec l'équipe back-end et la MOA : contrats d'API REST, revues de code, recettes (UAT), intégration.</li>
           </ul>
           <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-top: 16px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.06);">
             <span style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: #8E8E97; padding: 4px 9px; background: rgba(255,255,255,0.04); border-radius: 6px;">Angular 16 &amp; 17</span>
@@ -323,16 +333,16 @@
         <!-- RH Partner -->
         <div style="background: #101015; border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 22px;">
           <div style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 6px; margin-bottom: 14px;">
-            <div style="font-weight: 600; font-size: 17px;"><span style="color:#FF6A3D;">▸</span> RH Partner &amp; ATS <span style="color: #6A6A73; font-weight: 400; font-size: 14px;">— Suite SaaS de gestion RH &amp; recrutement</span></div>
-            <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #6A6A73;">Août 2022 — Fév 2024</span>
+            <div style="font-weight: 600; font-size: 17px;" data-i18n="exp.rh.title"><span style="color:#FF6A3D;">▸</span> RH Partner &amp; ATS <span style="color: #6A6A73; font-weight: 400; font-size: 14px;">— Suite SaaS de gestion RH &amp; recrutement</span></div>
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #6A6A73;" data-i18n="exp.rh.date">Août 2022 — Fév 2024</span>
           </div>
           <ul style="margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 9px; color: #B7B7BE; font-size: 15px; line-height: 1.5;">
-            <li>Contribué au développement de 4 applications Angular interconnectées : Front-Office, Back-Office, Portail Employé et ATS.</li>
-            <li>Piloté la <span style="color:#F4F2EE;">migration progressive d'Angular v11 à v15</span>, incluant l'adaptation aux nouvelles APIs (standalone, nouveaux décorateurs).</li>
-            <li>Repris le développement du Portail Employé en <span style="color:#F4F2EE;">PWA</span> pour un accès mobile fluide et des fonctionnalités hors ligne.</li>
-            <li>Intégré les WebSockets pour la communication temps réel (notifications, statuts de candidature).</li>
-            <li>Refondu l'interface utilisateur globale avec le designer pour améliorer l'UX et la cohérence graphique.</li>
-            <li>Utilisé antlr4ts pour le parsing d'expressions métier personnalisées dans le Back-Office.</li>
+            <li data-i18n="exp.rh.li1">Contribué au développement de 4 applications Angular interconnectées : Front-Office, Back-Office, Portail Employé et ATS.</li>
+            <li data-i18n="exp.rh.li2">Piloté la <span style="color:#F4F2EE;">migration progressive d'Angular v11 à v15</span>, incluant l'adaptation aux nouvelles APIs (standalone, nouveaux décorateurs).</li>
+            <li data-i18n="exp.rh.li3">Repris le développement du Portail Employé en <span style="color:#F4F2EE;">PWA</span> pour un accès mobile fluide et des fonctionnalités hors ligne.</li>
+            <li data-i18n="exp.rh.li4">Intégré les WebSockets pour la communication temps réel (notifications, statuts de candidature).</li>
+            <li data-i18n="exp.rh.li5">Refondu l'interface utilisateur globale avec le designer pour améliorer l'UX et la cohérence graphique.</li>
+            <li data-i18n="exp.rh.li6">Utilisé antlr4ts pour le parsing d'expressions métier personnalisées dans le Back-Office.</li>
           </ul>
           <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-top: 16px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.06);">
             <span style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: #8E8E97; padding: 4px 9px; background: rgba(255,255,255,0.04); border-radius: 6px;">Angular 11→15</span>
@@ -350,14 +360,14 @@
       <div data-reveal style="position: relative; margin-bottom: 48px;">
         <div style="position: absolute; left: -30px; top: 4px; width: 15px; height: 15px; border-radius: 50%; background: #1A1A21; border: 2px solid rgba(255,255,255,0.2); box-shadow: 0 0 0 4px #0B0B0F;"></div>
         <div style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px;">
-          <h3 style="font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 21px; margin: 0; letter-spacing: -0.01em;">Développeur Front-End React <span style="color: #6A6A73;">·</span> Capsit</h3>
-          <span style="font-family: 'JetBrains Mono', monospace; font-size: 12.5px; color: #9A9AA3;">Oct 2021 — Août 2022</span>
+          <h3 style="font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 21px; margin: 0; letter-spacing: -0.01em;" data-i18n="exp.capsit.role">Développeur Front-End React <span style="color: #6A6A73;">·</span> Capsit</h3>
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 12.5px; color: #9A9AA3;" data-i18n="exp.capsit.date">Oct 2021 — Août 2022</span>
         </div>
-        <p style="font-size: 14.5px; color: #9A9AA3; margin: 8px 0 16px;">Application de gestion de clients et de machines à café connectées (capsit.fr).</p>
+        <p style="font-size: 14.5px; color: #9A9AA3; margin: 8px 0 16px;" data-i18n="exp.capsit.desc">Application de gestion de clients et de machines à café connectées (capsit.fr).</p>
         <ul style="margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 9px; color: #B7B7BE; font-size: 15px; line-height: 1.5;">
-          <li>Développé l'interface de supervision des machines connectées et de gestion des approvisionnements clients.</li>
-          <li>Intégré des visualisations de données interactives avec <span style="color:#F4F2EE;">ApexCharts</span> pour le suivi des consommations et des alertes.</li>
-          <li>Implémenté l'interface multilingue avec i18next et stylé l'application avec Material UI et SCSS.</li>
+          <li data-i18n="exp.capsit.li1">Développé l'interface de supervision des machines connectées et de gestion des approvisionnements clients.</li>
+          <li data-i18n="exp.capsit.li2">Intégré des visualisations de données interactives avec <span style="color:#F4F2EE;">ApexCharts</span> pour le suivi des consommations et des alertes.</li>
+          <li data-i18n="exp.capsit.li3">Implémenté l'interface multilingue avec i18next et stylé l'application avec Material UI et SCSS.</li>
         </ul>
         <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-top: 16px;">
           <span style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: #8E8E97; padding: 4px 9px; background: rgba(255,255,255,0.04); border-radius: 6px;">React</span>
@@ -373,13 +383,13 @@
       <div data-reveal style="position: relative; margin-bottom: 48px;">
         <div style="position: absolute; left: -30px; top: 4px; width: 15px; height: 15px; border-radius: 50%; background: #1A1A21; border: 2px solid rgba(255,255,255,0.2); box-shadow: 0 0 0 4px #0B0B0F;"></div>
         <div style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px;">
-          <h3 style="font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 21px; margin: 0; letter-spacing: -0.01em;">Projet de fin d'études <span style="color: #6A6A73;">·</span> Deliver</h3>
-          <span style="font-family: 'JetBrains Mono', monospace; font-size: 12.5px; color: #9A9AA3;">Avr 2021 — Sept 2021</span>
+          <h3 style="font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 21px; margin: 0; letter-spacing: -0.01em;" data-i18n="exp.deliver.role">Projet de fin d'études <span style="color: #6A6A73;">·</span> Deliver</h3>
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 12.5px; color: #9A9AA3;" data-i18n="exp.deliver.date">Avr 2021 — Sept 2021</span>
         </div>
-        <p style="font-size: 14.5px; color: #9A9AA3; margin: 8px 0 16px;">Application mobile de livraison et de transport de biens — conception complète.</p>
+        <p style="font-size: 14.5px; color: #9A9AA3; margin: 8px 0 16px;" data-i18n="exp.deliver.desc">Application mobile de livraison et de transport de biens — conception complète.</p>
         <ul style="margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 9px; color: #B7B7BE; font-size: 15px; line-height: 1.5;">
-          <li>Conçu l'architecture logicielle (UML), modélisé la base de données et initialisé le projet de bout en bout.</li>
-          <li>Développé l'ensemble des écrans : authentification, géolocalisation, suivi de commande, notifications.</li>
+          <li data-i18n="exp.deliver.li1">Conçu l'architecture logicielle (UML), modélisé la base de données et initialisé le projet de bout en bout.</li>
+          <li data-i18n="exp.deliver.li2">Développé l'ensemble des écrans : authentification, géolocalisation, suivi de commande, notifications.</li>
         </ul>
         <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-top: 16px;">
           <span style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: #8E8E97; padding: 4px 9px; background: rgba(255,255,255,0.04); border-radius: 6px;">React Native · Expo</span>
@@ -393,13 +403,13 @@
       <div data-reveal style="position: relative;">
         <div style="position: absolute; left: -30px; top: 4px; width: 15px; height: 15px; border-radius: 50%; background: #1A1A21; border: 2px solid rgba(255,255,255,0.2); box-shadow: 0 0 0 4px #0B0B0F;"></div>
         <div style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px;">
-          <h3 style="font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 21px; margin: 0; letter-spacing: -0.01em;">Stage de fin de licence <span style="color: #6A6A73;">·</span> VegaSoft</h3>
-          <span style="font-family: 'JetBrains Mono', monospace; font-size: 12.5px; color: #9A9AA3;">Mars 2019 — Mai 2019</span>
+          <h3 style="font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 21px; margin: 0; letter-spacing: -0.01em;" data-i18n="exp.vega.role">Stage de fin de licence <span style="color: #6A6A73;">·</span> VegaSoft</h3>
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 12.5px; color: #9A9AA3;" data-i18n="exp.vega.date">Mars 2019 — Mai 2019</span>
         </div>
-        <p style="font-size: 14.5px; color: #9A9AA3; margin: 8px 0 16px;">Bejaïa, Algérie.</p>
+        <p style="font-size: 14.5px; color: #9A9AA3; margin: 8px 0 16px;" data-i18n="exp.vega.desc">Bejaïa, Algérie.</p>
         <ul style="margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 9px; color: #B7B7BE; font-size: 15px; line-height: 1.5;">
-          <li>Conçu et implémenté une solution de fonctionnement hors ligne (IndexedDB + PWA) pour une application web existante.</li>
-          <li>Refactorisé le code legacy pour améliorer la lisibilité, la performance et la maintenabilité.</li>
+          <li data-i18n="exp.vega.li1">Conçu et implémenté une solution de fonctionnement hors ligne (IndexedDB + PWA) pour une application web existante.</li>
+          <li data-i18n="exp.vega.li2">Refactorisé le code legacy pour améliorer la lisibilité, la performance et la maintenabilité.</li>
         </ul>
         <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-top: 16px;">
           <span style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: #8E8E97; padding: 4px 9px; background: rgba(255,255,255,0.04); border-radius: 6px;">JavaScript · jQuery</span>
@@ -415,28 +425,28 @@
   <section id="projets" style="position: relative; z-index: 1; max-width: 1180px; margin: 0 auto; padding: 80px 32px; scroll-margin-top: 90px;">
     <div data-reveal style="margin-bottom: 44px;">
       <div style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #FF6A3D;">// 04</div>
-      <h2 style="font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: clamp(30px, 4vw, 44px); letter-spacing: -0.025em; margin: 8px 0 0;">Projet personnel</h2>
+      <h2 style="font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: clamp(30px, 4vw, 44px); letter-spacing: -0.025em; margin: 8px 0 0;" data-i18n="proj.title">Projet personnel</h2>
     </div>
 
     <div data-reveal style="position: relative; background: linear-gradient(135deg, rgba(255,106,61,0.08), rgba(16,16,21,0.4)); border: 1px solid rgba(255,106,61,0.22); border-radius: 20px; padding: 40px; overflow: hidden;">
       <div style="position: absolute; top: -80px; right: -60px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(255,106,61,0.14), transparent 70%); filter: blur(10px);"></div>
       <div style="position: relative;">
         <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-bottom: 18px;">
-          <span style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: #FF6A3D; padding: 5px 11px; border: 1px solid rgba(255,106,61,0.4); border-radius: 999px;">EN COURS · 2026</span>
-          <span style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: #9A9AA3;">B2B · SaaS multi-tenant</span>
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: #FF6A3D; padding: 5px 11px; border: 1px solid rgba(255,106,61,0.4); border-radius: 999px;" data-i18n="proj.badge">EN COURS · 2026</span>
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: #9A9AA3;" data-i18n="proj.tag">B2B · SaaS multi-tenant</span>
         </div>
         <h3 style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: clamp(26px, 3.5vw, 38px); letter-spacing: -0.02em; margin: 0;">3A Finance OS</h3>
-        <p style="font-size: 18px; line-height: 1.6; color: #DCDCDF; max-width: 720px; margin: 16px 0 0; text-wrap: pretty;">
+        <p style="font-size: 18px; line-height: 1.6; color: #DCDCDF; max-width: 720px; margin: 16px 0 0; text-wrap: pretty;" data-i18n="proj.desc">
           Conception et développement en autonomie d'une plateforme de gestion du cycle de financement pour cabinets de conseil — portail client, moteur de covenants, simulateur freemium.
         </p>
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-top: 28px;">
           <div style="background: rgba(11,11,15,0.5); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 18px;">
-            <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #FF6A3D; margin-bottom: 7px;">Architecture</div>
-            <div style="font-size: 14.5px; color: #B7B7BE; line-height: 1.5;">Monorepo pnpm · API NestJS · front Next.js — full-stack défini de bout en bout.</div>
+            <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #FF6A3D; margin-bottom: 7px;" data-i18n="proj.arch.label">Architecture</div>
+            <div style="font-size: 14.5px; color: #B7B7BE; line-height: 1.5;" data-i18n="proj.arch.body">Monorepo pnpm · API NestJS · front Next.js — full-stack défini de bout en bout.</div>
           </div>
           <div style="background: rgba(11,11,15,0.5); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 18px;">
-            <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #FF6A3D; margin-bottom: 7px;">Workflow IA</div>
-            <div style="font-size: 14.5px; color: #B7B7BE; line-height: 1.5;">Développement assisté structuré : conventions CLAUDE.md, découpage en sprints, orchestration de Claude Code comme agent.</div>
+            <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #FF6A3D; margin-bottom: 7px;" data-i18n="proj.ai.label">Workflow IA</div>
+            <div style="font-size: 14.5px; color: #B7B7BE; line-height: 1.5;" data-i18n="proj.ai.body">Développement assisté structuré : conventions CLAUDE.md, découpage en sprints, orchestration de Claude Code comme agent.</div>
           </div>
         </div>
         <div style="display: flex; flex-wrap: wrap; gap: 7px; margin-top: 24px;">
@@ -455,21 +465,21 @@
     <div data-reveal style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px;">
 
       <div style="background: #101015; border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 28px;">
-        <h3 style="font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 500; color: #FF6A3D; margin: 0 0 22px; text-transform: uppercase; letter-spacing: 0.05em;">Formation</h3>
+        <h3 style="font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 500; color: #FF6A3D; margin: 0 0 22px; text-transform: uppercase; letter-spacing: 0.05em;" data-i18n="edu.title">Formation</h3>
         <div style="display: flex; flex-direction: column; gap: 20px;">
           <div>
-            <div style="font-weight: 600; font-size: 16px; color: #F4F2EE;">Master en Génie Logiciel</div>
-            <div style="font-size: 14px; color: #9A9AA3; margin-top: 3px;">Université de Bejaïa, Algérie</div>
+            <div style="font-weight: 600; font-size: 16px; color: #F4F2EE;" data-i18n="edu.master">Master en Génie Logiciel</div>
+            <div style="font-size: 14px; color: #9A9AA3; margin-top: 3px;" data-i18n="edu.bejaia">Université de Bejaïa, Algérie</div>
             <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #6A6A73; margin-top: 4px;">2019 — 2021</div>
           </div>
           <div>
-            <div style="font-weight: 600; font-size: 16px; color: #F4F2EE;">Licence Mathématiques–Informatique</div>
-            <div style="font-size: 14px; color: #9A9AA3; margin-top: 3px;">Université de Bejaïa, Algérie</div>
+            <div style="font-weight: 600; font-size: 16px; color: #F4F2EE;" data-i18n="edu.licence">Licence Mathématiques–Informatique</div>
+            <div style="font-size: 14px; color: #9A9AA3; margin-top: 3px;" data-i18n="edu.bejaia">Université de Bejaïa, Algérie</div>
             <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #6A6A73; margin-top: 4px;">2016 — 2019</div>
           </div>
           <div>
-            <div style="font-weight: 600; font-size: 16px; color: #F4F2EE;">Baccalauréat Mathématiques</div>
-            <div style="font-size: 14px; color: #9A9AA3; margin-top: 3px;">Lycée Stambouli, Bejaïa</div>
+            <div style="font-weight: 600; font-size: 16px; color: #F4F2EE;" data-i18n="edu.bac">Baccalauréat Mathématiques</div>
+            <div style="font-size: 14px; color: #9A9AA3; margin-top: 3px;" data-i18n="edu.lycee">Lycée Stambouli, Bejaïa</div>
             <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #6A6A73; margin-top: 4px;">2016</div>
           </div>
         </div>
@@ -477,21 +487,21 @@
 
       <div style="display: flex; flex-direction: column; gap: 16px;">
         <div style="background: #101015; border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 28px;">
-          <h3 style="font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 500; color: #FF6A3D; margin: 0 0 18px; text-transform: uppercase; letter-spacing: 0.05em;">Langues</h3>
+          <h3 style="font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 500; color: #FF6A3D; margin: 0 0 18px; text-transform: uppercase; letter-spacing: 0.05em;" data-i18n="lang.title">Langues</h3>
           <div style="display: flex; flex-direction: column; gap: 12px;">
-            <div style="display: flex; justify-content: space-between; align-items: baseline;"><span style="font-size: 15px; color: #F4F2EE;">Kabyle</span><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #9A9AA3;">langue maternelle</span></div>
-            <div style="display: flex; justify-content: space-between; align-items: baseline;"><span style="font-size: 15px; color: #F4F2EE;">Arabe</span><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #9A9AA3;">courant</span></div>
-            <div style="display: flex; justify-content: space-between; align-items: baseline;"><span style="font-size: 15px; color: #F4F2EE;">Français</span><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #9A9AA3;">courant</span></div>
-            <div style="display: flex; justify-content: space-between; align-items: baseline;"><span style="font-size: 15px; color: #F4F2EE;">Anglais</span><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #9A9AA3;">intermédiaire · technique</span></div>
+            <div style="display: flex; justify-content: space-between; align-items: baseline;"><span style="font-size: 15px; color: #F4F2EE;" data-i18n="lang.kabyle">Kabyle</span><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #9A9AA3;" data-i18n="lang.native">langue maternelle</span></div>
+            <div style="display: flex; justify-content: space-between; align-items: baseline;"><span style="font-size: 15px; color: #F4F2EE;" data-i18n="lang.arabic">Arabe</span><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #9A9AA3;" data-i18n="lang.fluent">courant</span></div>
+            <div style="display: flex; justify-content: space-between; align-items: baseline;"><span style="font-size: 15px; color: #F4F2EE;" data-i18n="lang.french">Français</span><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #9A9AA3;" data-i18n="lang.fluent">courant</span></div>
+            <div style="display: flex; justify-content: space-between; align-items: baseline;"><span style="font-size: 15px; color: #F4F2EE;" data-i18n="lang.english">Anglais</span><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #9A9AA3;" data-i18n="lang.intermediate">intermédiaire · technique</span></div>
           </div>
         </div>
         <div style="background: #101015; border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 28px;">
-          <h3 style="font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 500; color: #FF6A3D; margin: 0 0 18px; text-transform: uppercase; letter-spacing: 0.05em;">Centres d'intérêt</h3>
+          <h3 style="font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 500; color: #FF6A3D; margin: 0 0 18px; text-transform: uppercase; letter-spacing: 0.05em;" data-i18n="int.title">Centres d'intérêt</h3>
           <div style="display: flex; flex-wrap: wrap; gap: 8px;">
-            <span style="font-size: 13.5px; color: #DCDCDF; padding: 7px 13px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.07); border-radius: 999px;">Veille tech &amp; IA</span>
-            <span style="font-size: 13.5px; color: #DCDCDF; padding: 7px 13px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.07); border-radius: 999px;">Apiculture</span>
-            <span style="font-size: 13.5px; color: #DCDCDF; padding: 7px 13px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.07); border-radius: 999px;">Lecture</span>
-            <span style="font-size: 13.5px; color: #DCDCDF; padding: 7px 13px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.07); border-radius: 999px;">Voyages</span>
+            <span style="font-size: 13.5px; color: #DCDCDF; padding: 7px 13px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.07); border-radius: 999px;" data-i18n="int.watch">Veille tech &amp; IA</span>
+            <span style="font-size: 13.5px; color: #DCDCDF; padding: 7px 13px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.07); border-radius: 999px;" data-i18n="int.bee">Apiculture</span>
+            <span style="font-size: 13.5px; color: #DCDCDF; padding: 7px 13px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.07); border-radius: 999px;" data-i18n="int.reading">Lecture</span>
+            <span style="font-size: 13.5px; color: #DCDCDF; padding: 7px 13px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.07); border-radius: 999px;" data-i18n="int.travel">Voyages</span>
           </div>
         </div>
       </div>
@@ -504,26 +514,287 @@
     <div data-reveal style="background: #0E0E13; border: 1px solid rgba(255,255,255,0.08); border-radius: 24px; padding: clamp(36px, 6vw, 72px); text-align: center; position: relative; overflow: hidden;">
       <div style="position: absolute; bottom: -120px; left: 50%; transform: translateX(-50%); width: 600px; height: 300px; background: radial-gradient(circle, rgba(255,106,61,0.16), transparent 70%); filter: blur(10px);"></div>
       <div style="position: relative;">
-        <div style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #FF6A3D; margin-bottom: 18px;">// 05 — travaillons ensemble</div>
-        <h2 style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: clamp(32px, 5.5vw, 60px); letter-spacing: -0.03em; margin: 0; line-height: 1.0;">Construisons quelque<br>chose de solide.</h2>
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #FF6A3D; margin-bottom: 18px;" data-i18n="contact.kicker">// 05 — travaillons ensemble</div>
+        <h2 data-i18n="contact.title" style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: clamp(32px, 5.5vw, 60px); letter-spacing: -0.03em; margin: 0; line-height: 1.0;">Construisons quelque<br>chose de solide.</h2>
         <div style="display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; margin-top: 40px;">
           <a href="mailto:tafouktidris@gmail.com" class="pf-btn-primary" style="display: inline-flex; align-items: center; gap: 9px; padding: 15px 28px; border-radius: 12px; background: #FF6A3D; color: #0B0B0F; font-weight: 600; font-size: 15px;">tafouktidris@gmail.com</a>
           <a href="tel:+213551055079" class="pf-btn-mono" style="display: inline-flex; align-items: center; gap: 9px; padding: 15px 28px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.14); color: #F4F2EE; font-family: 'JetBrains Mono', monospace; font-size: 14px;">+213 551 05 50 79</a>
           <a href="https://linkedin.com/in/idris-tafoukt" target="_blank" rel="noopener" class="pf-btn-mono" style="display: inline-flex; align-items: center; gap: 9px; padding: 15px 28px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.14); color: #F4F2EE; font-family: 'JetBrains Mono', monospace; font-size: 14px;">in/idris-tafoukt</a>
         </div>
-        <div style="font-family: 'JetBrains Mono', monospace; font-size: 12.5px; color: #6A6A73; margin-top: 36px;">Bejaïa, Algérie · ouvert au full-remote</div>
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 12.5px; color: #6A6A73; margin-top: 36px;" data-i18n="contact.loc">Bejaïa, Algérie · ouvert au full-remote</div>
       </div>
     </div>
     <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; margin-top: 40px; padding-top: 28px; border-top: 1px solid rgba(255,255,255,0.06);">
       <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #6A6A73;">© 2026 Idris Tafoukt</span>
-      <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #6A6A73;">Développeur Front-End → Lead full-stack</span>
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #6A6A73;" data-i18n="footer.tagline">Développeur Front-End → Lead full-stack</span>
     </div>
   </section>
 
 </div>
 
 <script>
-  // Scroll progress bar
+  // ---- i18n dictionary (FR / EN) ----
+  var I18N = {
+    fr: {
+      "meta.title": `Idris Tafoukt — Développeur Front-End Angular`,
+      "meta.desc": `Idris Tafoukt — Développeur Front-End Angular. 4 ans d'expérience sur des applications web en production (vote en ligne, RH, recrutement). Cap vers le Lead full-stack et le développement assisté par l'IA.`,
+      "nav.profil": `profil`,
+      "nav.competences": `compétences`,
+      "nav.experience": `expérience`,
+      "nav.projets": `projets`,
+      "nav.contact": `contact`,
+      "hero.badge": `Disponible · Bejaïa, Algérie`,
+      "hero.h1": `Développeur<br>Front-End <span style="color: #FF6A3D;">Angular.</span>`,
+      "hero.lead": `4 ans à concevoir et faire vivre des applications web en production — vote en ligne, RH, recrutement. Aujourd'hui, cap vers le <span style="color: #F4F2EE; font-weight: 600;">Lead full-stack</span> et le développement assisté par l'IA.`,
+      "hero.cta1": `Me contacter →`,
+      "hero.cta2": `Voir mes projets`,
+      "hero.stat1": `ans d'expérience`,
+      "hero.stat2": `apps en production`,
+      "hero.stat3": `migrations Angular`,
+      "hero.stat4": `domaines · RH · Vote · ATS`,
+      "profil.title": `Profil`,
+      "profil.p1": `Développeur front-end passionné, j'ai contribué à plusieurs <span style="color: #FF6A3D;">projets SaaS</span> dans le recrutement, les RH et le vote en ligne — de la conception à la maintenance en production.`,
+      "profil.p2": `Solide expertise en TypeScript, RxJS, NgRx, SSR et architecture modulaire/standalone, à l'aise en environnement Agile/Scrum et dans la collaboration avec les équipes MOA et back-end. Je souhaite évoluer vers un rôle de <span style="color: #DCDCDF;">Lead développeur full-stack</span> et développer une expertise sur l'intégration de l'IA et des approches no-code dans le développement web.`,
+      "comp.title": `Compétences techniques`,
+      "comp.c1": `Frameworks &amp; Librairies`,
+      "comp.c2": `Langages`,
+      "comp.c3": `Styling &amp; UI`,
+      "comp.c4": `Architecture &amp; APIs`,
+      "comp.c5": `Qualité &amp; Sécurité`,
+      "comp.c6": `Outils &amp; DevOps`,
+      "comp.c7": `IA &amp; Productivité`,
+      "comp.c8": `Notions Back-End`,
+      "comp.responsive": `Responsive design`,
+      "comp.modular": `Modulaire / Standalone`,
+      "comp.codereview": `Code review`,
+      "comp.docker": `Docker <span style="opacity:0.6">· base</span>`,
+      "comp.cicd": `CI/CD <span style="opacity:0.6">· base</span>`,
+      "comp.aws": `AWS <span style="opacity:0.6">· base</span>`,
+      "comp.aidev": `Dev assisté par IA`,
+      "comp.nocode": `Outils no-code`,
+      "exp.title": `Expérience professionnelle`,
+      "exp.ti.role": `Développeur Front-End Angular <span style="color: #FF6A3D;">·</span> Tech'instinct`,
+      "exp.ti.date": `Août 2022 — Aujourd'hui`,
+      "exp.ti.desc": `ESN spécialisée dans le développement d'applications web pour clients internationaux — France, Suisse, Algérie.`,
+      "exp.voteer.title": `<span style="color:#FF6A3D;">▸</span> Voteer <span style="color: #6A6A73; font-weight: 400; font-size: 14px;">— Suite d'applications de vote légal en ligne</span>`,
+      "exp.voteer.date": `Août 2024 — Aujourd'hui`,
+      "exp.voteer.li1": `Repris le développement de 4 applications Angular distinctes (Admin, Organizer, Voter, Check-in) et assuré la continuité du projet ainsi que l'évolution des fonctionnalités.`,
+      "exp.voteer.li2": `Intégré l'application Voter à la <span style="color:#F4F2EE;">Zoom Marketplace</span> et mené le processus de publication jusqu'à la mise en ligne officielle.`,
+      "exp.voteer.li3": `Implémenté les normes d'accessibilité <span style="color:#F4F2EE;">RGAA</span> sur toute l'application Voter : navigation clavier, attributs ARIA, contrastes, lecteurs d'écran.`,
+      "exp.voteer.li4": `Piloté la <span style="color:#F4F2EE;">migration d'Angular 15 à 19</span> et refactorisé le code (standalone, control flow @if/@for, signals, inject()) — lisibilité accrue, bundle réduit.`,
+      "exp.voteer.li5": `Réalisé un profiling approfondi et appliqué des optimisations ciblées : lazy loading, OnPush, trackBy, signals.`,
+      "exp.voteer.li6": `Collaboré au quotidien avec 2 développeurs back-end et la MOA en Scrum : contrats d'API, revues de code, recettes (UAT), intégration.`,
+      "exp.spartan.title": `<span style="color:#FF6A3D;">▸</span> SpartanJob <span style="color: #6A6A73; font-weight: 400; font-size: 14px;">— Plateforme de recrutement suisse</span>`,
+      "exp.spartan.date": `Fév 2024 — Août 2024`,
+      "exp.spartan.li1": `Assuré la reprise technique de 2 applications Angular : portail client entreprises et application candidats avec SSR.`,
+      "exp.spartan.li2": `Intégré le balisage structuré <span style="color:#F4F2EE;">JSON-LD (Schema.org JobPosting)</span> permettant l'indexation des offres dans <span style="color:#F4F2EE;">Google for Jobs</span> — visibilité organique fortement accrue.`,
+      "exp.spartan.li3": `Maintenu et optimisé le rendu côté serveur (Angular Universal) pour un SEO performant et un temps de chargement initial réduit.`,
+      "exp.spartan.li4": `Collaboré en Scrum avec l'équipe back-end et la MOA : contrats d'API REST, revues de code, recettes (UAT), intégration.`,
+      "exp.rh.title": `<span style="color:#FF6A3D;">▸</span> RH Partner &amp; ATS <span style="color: #6A6A73; font-weight: 400; font-size: 14px;">— Suite SaaS de gestion RH &amp; recrutement</span>`,
+      "exp.rh.date": `Août 2022 — Fév 2024`,
+      "exp.rh.li1": `Contribué au développement de 4 applications Angular interconnectées : Front-Office, Back-Office, Portail Employé et ATS.`,
+      "exp.rh.li2": `Piloté la <span style="color:#F4F2EE;">migration progressive d'Angular v11 à v15</span>, incluant l'adaptation aux nouvelles APIs (standalone, nouveaux décorateurs).`,
+      "exp.rh.li3": `Repris le développement du Portail Employé en <span style="color:#F4F2EE;">PWA</span> pour un accès mobile fluide et des fonctionnalités hors ligne.`,
+      "exp.rh.li4": `Intégré les WebSockets pour la communication temps réel (notifications, statuts de candidature).`,
+      "exp.rh.li5": `Refondu l'interface utilisateur globale avec le designer pour améliorer l'UX et la cohérence graphique.`,
+      "exp.rh.li6": `Utilisé antlr4ts pour le parsing d'expressions métier personnalisées dans le Back-Office.`,
+      "exp.capsit.role": `Développeur Front-End React <span style="color: #6A6A73;">·</span> Capsit`,
+      "exp.capsit.date": `Oct 2021 — Août 2022`,
+      "exp.capsit.desc": `Application de gestion de clients et de machines à café connectées (capsit.fr).`,
+      "exp.capsit.li1": `Développé l'interface de supervision des machines connectées et de gestion des approvisionnements clients.`,
+      "exp.capsit.li2": `Intégré des visualisations de données interactives avec <span style="color:#F4F2EE;">ApexCharts</span> pour le suivi des consommations et des alertes.`,
+      "exp.capsit.li3": `Implémenté l'interface multilingue avec i18next et stylé l'application avec Material UI et SCSS.`,
+      "exp.deliver.role": `Projet de fin d'études <span style="color: #6A6A73;">·</span> Deliver`,
+      "exp.deliver.date": `Avr 2021 — Sept 2021`,
+      "exp.deliver.desc": `Application mobile de livraison et de transport de biens — conception complète.`,
+      "exp.deliver.li1": `Conçu l'architecture logicielle (UML), modélisé la base de données et initialisé le projet de bout en bout.`,
+      "exp.deliver.li2": `Développé l'ensemble des écrans : authentification, géolocalisation, suivi de commande, notifications.`,
+      "exp.vega.role": `Stage de fin de licence <span style="color: #6A6A73;">·</span> VegaSoft`,
+      "exp.vega.date": `Mars 2019 — Mai 2019`,
+      "exp.vega.desc": `Bejaïa, Algérie.`,
+      "exp.vega.li1": `Conçu et implémenté une solution de fonctionnement hors ligne (IndexedDB + PWA) pour une application web existante.`,
+      "exp.vega.li2": `Refactorisé le code legacy pour améliorer la lisibilité, la performance et la maintenabilité.`,
+      "proj.title": `Projet personnel`,
+      "proj.badge": `EN COURS · 2026`,
+      "proj.tag": `B2B · SaaS multi-tenant`,
+      "proj.desc": `Conception et développement en autonomie d'une plateforme de gestion du cycle de financement pour cabinets de conseil — portail client, moteur de covenants, simulateur freemium.`,
+      "proj.arch.label": `Architecture`,
+      "proj.arch.body": `Monorepo pnpm · API NestJS · front Next.js — full-stack défini de bout en bout.`,
+      "proj.ai.label": `Workflow IA`,
+      "proj.ai.body": `Développement assisté structuré : conventions CLAUDE.md, découpage en sprints, orchestration de Claude Code comme agent.`,
+      "edu.title": `Formation`,
+      "edu.master": `Master en Génie Logiciel`,
+      "edu.licence": `Licence Mathématiques–Informatique`,
+      "edu.bac": `Baccalauréat Mathématiques`,
+      "edu.bejaia": `Université de Bejaïa, Algérie`,
+      "edu.lycee": `Lycée Stambouli, Bejaïa`,
+      "lang.title": `Langues`,
+      "lang.kabyle": `Kabyle`,
+      "lang.arabic": `Arabe`,
+      "lang.french": `Français`,
+      "lang.english": `Anglais`,
+      "lang.native": `langue maternelle`,
+      "lang.fluent": `courant`,
+      "lang.intermediate": `intermédiaire · technique`,
+      "int.title": `Centres d'intérêt`,
+      "int.watch": `Veille tech &amp; IA`,
+      "int.bee": `Apiculture`,
+      "int.reading": `Lecture`,
+      "int.travel": `Voyages`,
+      "contact.kicker": `// 05 — travaillons ensemble`,
+      "contact.title": `Construisons quelque<br>chose de solide.`,
+      "contact.loc": `Bejaïa, Algérie · ouvert au full-remote`,
+      "footer.tagline": `Développeur Front-End → Lead full-stack`
+    },
+    en: {
+      "meta.title": `Idris Tafoukt — Front-End Angular Developer`,
+      "meta.desc": `Idris Tafoukt — Front-End Angular Developer. 4 years building production web applications (online voting, HR, recruitment). Heading toward Full-stack Lead and AI-assisted development.`,
+      "nav.profil": `profile`,
+      "nav.competences": `skills`,
+      "nav.experience": `experience`,
+      "nav.projets": `projects`,
+      "nav.contact": `contact`,
+      "hero.badge": `Available · Bejaïa, Algeria`,
+      "hero.h1": `Front-End<br>Developer <span style="color: #FF6A3D;">Angular.</span>`,
+      "hero.lead": `4 years building and maintaining production web applications — online voting, HR, recruitment. Now heading toward <span style="color: #F4F2EE; font-weight: 600;">Full-stack Lead</span> and AI-assisted development.`,
+      "hero.cta1": `Get in touch →`,
+      "hero.cta2": `View my projects`,
+      "hero.stat1": `years of experience`,
+      "hero.stat2": `apps in production`,
+      "hero.stat3": `Angular migrations`,
+      "hero.stat4": `domains · HR · Voting · ATS`,
+      "profil.title": `Profile`,
+      "profil.p1": `A passionate front-end developer, I've contributed to several <span style="color: #FF6A3D;">SaaS projects</span> in recruitment, HR and online voting — from design to production maintenance.`,
+      "profil.p2": `Strong expertise in TypeScript, RxJS, NgRx, SSR and modular/standalone architecture, comfortable in Agile/Scrum environments and collaborating with business-analyst and back-end teams. I aim to grow into a <span style="color: #DCDCDF;">Full-stack Lead</span> role and build expertise in integrating AI and no-code approaches into web development.`,
+      "comp.title": `Technical skills`,
+      "comp.c1": `Frameworks &amp; Libraries`,
+      "comp.c2": `Languages`,
+      "comp.c3": `Styling &amp; UI`,
+      "comp.c4": `Architecture &amp; APIs`,
+      "comp.c5": `Quality &amp; Security`,
+      "comp.c6": `Tools &amp; DevOps`,
+      "comp.c7": `AI &amp; Productivity`,
+      "comp.c8": `Back-End basics`,
+      "comp.responsive": `Responsive design`,
+      "comp.modular": `Modular / Standalone`,
+      "comp.codereview": `Code review`,
+      "comp.docker": `Docker <span style="opacity:0.6">· basic</span>`,
+      "comp.cicd": `CI/CD <span style="opacity:0.6">· basic</span>`,
+      "comp.aws": `AWS <span style="opacity:0.6">· basic</span>`,
+      "comp.aidev": `AI-assisted dev`,
+      "comp.nocode": `No-code tools`,
+      "exp.title": `Professional experience`,
+      "exp.ti.role": `Front-End Angular Developer <span style="color: #FF6A3D;">·</span> Tech'instinct`,
+      "exp.ti.date": `Aug 2022 — Present`,
+      "exp.ti.desc": `IT services company specialized in web application development for international clients — France, Switzerland, Algeria.`,
+      "exp.voteer.title": `<span style="color:#FF6A3D;">▸</span> Voteer <span style="color: #6A6A73; font-weight: 400; font-size: 14px;">— Suite of legal online voting apps</span>`,
+      "exp.voteer.date": `Aug 2024 — Present`,
+      "exp.voteer.li1": `Took over development of 4 distinct Angular apps (Admin, Organizer, Voter, Check-in), ensuring project continuity and feature evolution.`,
+      "exp.voteer.li2": `Integrated the Voter app into the <span style="color:#F4F2EE;">Zoom Marketplace</span> and led the publishing process through to the official launch.`,
+      "exp.voteer.li3": `Implemented <span style="color:#F4F2EE;">RGAA</span> accessibility standards across the entire Voter app: keyboard navigation, ARIA attributes, contrast, screen readers.`,
+      "exp.voteer.li4": `Led the <span style="color:#F4F2EE;">Angular 15 to 19 migration</span> and refactored the code (standalone, @if/@for control flow, signals, inject()) — improved readability, reduced bundle.`,
+      "exp.voteer.li5": `Carried out in-depth profiling and applied targeted optimizations: lazy loading, OnPush, trackBy, signals.`,
+      "exp.voteer.li6": `Collaborated daily with 2 back-end developers and the business analyst in Scrum: API contracts, code reviews, UAT, integration.`,
+      "exp.spartan.title": `<span style="color:#FF6A3D;">▸</span> SpartanJob <span style="color: #6A6A73; font-weight: 400; font-size: 14px;">— Swiss recruitment platform</span>`,
+      "exp.spartan.date": `Feb 2024 — Aug 2024`,
+      "exp.spartan.li1": `Took over the technical maintenance of 2 Angular apps: corporate client portal and candidate app with SSR.`,
+      "exp.spartan.li2": `Integrated structured <span style="color:#F4F2EE;">JSON-LD (Schema.org JobPosting)</span> markup enabling job indexing in <span style="color:#F4F2EE;">Google for Jobs</span> — strongly increased organic visibility.`,
+      "exp.spartan.li3": `Maintained and optimized server-side rendering (Angular Universal) for strong SEO and reduced initial load time.`,
+      "exp.spartan.li4": `Collaborated in Scrum with the back-end team and business analyst: REST API contracts, code reviews, UAT, integration.`,
+      "exp.rh.title": `<span style="color:#FF6A3D;">▸</span> RH Partner &amp; ATS <span style="color: #6A6A73; font-weight: 400; font-size: 14px;">— SaaS suite for HR management &amp; recruitment</span>`,
+      "exp.rh.date": `Aug 2022 — Feb 2024`,
+      "exp.rh.li1": `Contributed to the development of 4 interconnected Angular apps: Front-Office, Back-Office, Employee Portal and ATS.`,
+      "exp.rh.li2": `Led the <span style="color:#F4F2EE;">progressive migration from Angular v11 to v15</span>, including adapting to the new APIs (standalone, new decorators).`,
+      "exp.rh.li3": `Took over development of the Employee Portal as a <span style="color:#F4F2EE;">PWA</span> for smooth mobile access and offline features.`,
+      "exp.rh.li4": `Integrated WebSockets for real-time communication (notifications, application statuses).`,
+      "exp.rh.li5": `Reworked the global UI with the designer to improve UX and visual consistency.`,
+      "exp.rh.li6": `Used antlr4ts to parse custom business expressions in the Back-Office.`,
+      "exp.capsit.role": `Front-End React Developer <span style="color: #6A6A73;">·</span> Capsit`,
+      "exp.capsit.date": `Oct 2021 — Aug 2022`,
+      "exp.capsit.desc": `Management app for clients and connected coffee machines (capsit.fr).`,
+      "exp.capsit.li1": `Built the supervision interface for connected machines and client supply management.`,
+      "exp.capsit.li2": `Integrated interactive data visualizations with <span style="color:#F4F2EE;">ApexCharts</span> to track consumption and alerts.`,
+      "exp.capsit.li3": `Implemented the multilingual interface with i18next and styled the app with Material UI and SCSS.`,
+      "exp.deliver.role": `Final-year project <span style="color: #6A6A73;">·</span> Deliver`,
+      "exp.deliver.date": `Apr 2021 — Sep 2021`,
+      "exp.deliver.desc": `Mobile app for goods delivery and transport — full design and build.`,
+      "exp.deliver.li1": `Designed the software architecture (UML), modeled the database and bootstrapped the project end to end.`,
+      "exp.deliver.li2": `Built all screens: authentication, geolocation, order tracking, notifications.`,
+      "exp.vega.role": `Bachelor's end-of-studies internship <span style="color: #6A6A73;">·</span> VegaSoft`,
+      "exp.vega.date": `Mar 2019 — May 2019`,
+      "exp.vega.desc": `Bejaïa, Algeria.`,
+      "exp.vega.li1": `Designed and implemented an offline-capable solution (IndexedDB + PWA) for an existing web app.`,
+      "exp.vega.li2": `Refactored legacy code to improve readability, performance and maintainability.`,
+      "proj.title": `Personal project`,
+      "proj.badge": `IN PROGRESS · 2026`,
+      "proj.tag": `B2B · Multi-tenant SaaS`,
+      "proj.desc": `Independent design and development of a financing-lifecycle management platform for consulting firms — client portal, covenant engine, freemium simulator.`,
+      "proj.arch.label": `Architecture`,
+      "proj.arch.body": `pnpm monorepo · NestJS API · Next.js front — full-stack defined end to end.`,
+      "proj.ai.label": `AI workflow`,
+      "proj.ai.body": `Structured AI-assisted development: CLAUDE.md conventions, sprint breakdown, orchestrating Claude Code as an agent.`,
+      "edu.title": `Education`,
+      "edu.master": `Master's in Software Engineering`,
+      "edu.licence": `Bachelor's in Mathematics–Computer Science`,
+      "edu.bac": `Mathematics Baccalaureate`,
+      "edu.bejaia": `University of Bejaïa, Algeria`,
+      "edu.lycee": `Stambouli High School, Bejaïa`,
+      "lang.title": `Languages`,
+      "lang.kabyle": `Kabyle`,
+      "lang.arabic": `Arabic`,
+      "lang.french": `French`,
+      "lang.english": `English`,
+      "lang.native": `native`,
+      "lang.fluent": `fluent`,
+      "lang.intermediate": `intermediate · technical`,
+      "int.title": `Interests`,
+      "int.watch": `Tech &amp; AI watch`,
+      "int.bee": `Beekeeping`,
+      "int.reading": `Reading`,
+      "int.travel": `Travel`,
+      "contact.kicker": `// 05 — let's work together`,
+      "contact.title": `Let's build something<br>solid.`,
+      "contact.loc": `Bejaïa, Algeria · open to full-remote`,
+      "footer.tagline": `Front-End Developer → Full-stack Lead`
+    }
+  };
+
+  (function () {
+    var SUPPORTED = ['fr', 'en'];
+    var DEFAULT = 'fr';
+
+    function applyLang(lang) {
+      if (SUPPORTED.indexOf(lang) === -1) lang = DEFAULT;
+      var dict = I18N[lang];
+      document.querySelectorAll('[data-i18n]').forEach(function (el) {
+        var key = el.getAttribute('data-i18n');
+        if (dict[key] != null) el.innerHTML = dict[key];
+      });
+      document.documentElement.lang = lang;
+      if (dict['meta.title']) document.title = dict['meta.title'];
+      var md = document.querySelector('meta[name="description"]');
+      if (md && dict['meta.desc']) md.setAttribute('content', dict['meta.desc']);
+      document.querySelectorAll('.pf-lang-btn').forEach(function (b) {
+        b.setAttribute('aria-pressed', b.getAttribute('data-lang') === lang ? 'true' : 'false');
+      });
+      try { localStorage.setItem('pf-lang', lang); } catch (e) {}
+    }
+
+    // Initial language: saved choice > browser language > default
+    var initial;
+    try { initial = localStorage.getItem('pf-lang'); } catch (e) {}
+    if (!initial) {
+      var nav = (navigator.language || navigator.userLanguage || DEFAULT).toLowerCase();
+      initial = nav.indexOf('en') === 0 ? 'en' : 'fr';
+    }
+    applyLang(initial);
+
+    document.querySelectorAll('.pf-lang-btn').forEach(function (b) {
+      b.addEventListener('click', function () { applyLang(b.getAttribute('data-lang')); });
+    });
+  })();
+
+  // ---- Scroll progress bar + scroll reveal ----
   (function () {
     var bar = document.getElementById('pf-progress');
     function onScroll() {
@@ -535,7 +806,6 @@
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
 
-    // Scroll reveal (subtle, on-scroll)
     var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (!reduce && 'IntersectionObserver' in window) {
       var els = Array.prototype.slice.call(document.querySelectorAll('[data-reveal]'));
