@@ -1,43 +1,43 @@
 # Portfolio — Idris Tafoukt
 
-Portfolio personnel one-page (Développeur Front-End Angular → Lead full-stack).
+Personal one-page portfolio (Front-End Angular Developer → Full-stack Lead).
 
-Direction artistique **« developer-editorial »** : fond encre profond, typographies
-Space Grotesk + JetBrains Mono, accent corail unique, révélations subtiles au scroll
-et barre de progression. Conçu sur [claude.ai/design](https://claude.ai/design) puis
-porté en HTML/CSS/JS statique autonome.
+Art direction: **"developer-editorial"** — deep ink background, Space Grotesk +
+JetBrains Mono typography, a single coral accent, subtle scroll reveals and a
+progress bar. Designed on [claude.ai/design](https://claude.ai/design), then ported
+to a standalone static HTML/CSS/JS page.
 
 ## Structure
 
-- `index.html` — site complet, autonome (pas de build, pas de dépendances).
-  Les polices sont chargées depuis Google Fonts ; tout le reste est inline.
+- `index.html` — the complete, self-contained site (no build step, no dependencies).
+  Fonts are loaded from Google Fonts; everything else is inline.
 
-## Aperçu en local
+## Local preview
 
-Ouvrir `index.html` dans un navigateur, ou servir le dossier :
+Open `index.html` in a browser, or serve the folder:
 
 ```bash
 python3 -m http.server 8000
-# puis ouvrir http://localhost:8000
+# then open http://localhost:8000
 ```
 
-## Publication sur GitHub Pages
+## Deploy to GitHub Pages
 
-1. Créer un dépôt sur GitHub (ex. `portfolio`).
-2. Depuis ce dossier :
+1. Create a repository on GitHub (e.g. `portfolio`).
+2. From this folder:
 
    ```bash
-   git remote add origin https://github.com/<votre-utilisateur>/portfolio.git
+   git remote add origin https://github.com/<your-username>/portfolio.git
    git branch -M main
    git push -u origin main
    ```
 
-3. Sur GitHub : **Settings → Pages → Build and deployment**
-   - Source : **Deploy from a branch**
-   - Branch : **main** / **/ (root)** → Save.
+3. On GitHub: **Settings → Pages → Build and deployment**
+   - Source: **Deploy from a branch**
+   - Branch: **main** / **/ (root)** → Save.
 
-4. Le site sera en ligne sous quelques minutes à l'adresse :
-   `https://<votre-utilisateur>.github.io/portfolio/`
+4. The site goes live within a few minutes at:
+   `https://<your-username>.github.io/portfolio/`
 
-> Astuce : pour une URL racine `https://<votre-utilisateur>.github.io`,
-> nommez le dépôt `<votre-utilisateur>.github.io`.
+> Tip: for a root URL `https://<your-username>.github.io`, name the repository
+> `<your-username>.github.io`.
