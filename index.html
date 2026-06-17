@@ -793,8 +793,12 @@
       b.addEventListener('click', function () { applyLang(b.getAttribute('data-lang')); });
     });
   })();
+</script>
 
+<script>
   // ---- Scroll progress bar + scroll reveal ----
+  // Kept in its own <script> so an error in the i18n block above can never
+  // prevent the scroll animations from running.
   (function () {
     var bar = document.getElementById('pf-progress');
     function onScroll() {
